@@ -7,9 +7,10 @@ Mod created for Titanfall 2 to show player-count based on region and optionally 
 - For actual Titanfall 2 💀💀💀
 
 ## How to install
-1. Setup the Auto Matchmaking Mod via the installer linked [here](https://github.com/TimeIsUnending/TF2-Auto-Matchmaking-Mod/releases/latest).
-2. Download the latest release of the RPC mod.
-3. extract zip file for RPC mod, and move folder into Titanfall2/R2Titanfall/mods folder
+1. *S*etup the Auto Matchmaking Mod via the installer linked [here](https://github.com/TimeIsUnending/TF2-Auto-Matchmaking-Mod/releases/latest).
+2. *U*pgrade your game by downloading the latest release zip file of the RPC mod [here](https://github.com/TimeIsUnending/TF2-Regional-Player-Count-Mod/releases/latest).
+3. *C*ontinue to extract the zip file for RPC mod, and move folder into `Titanfall2/R2Titanfall/mods` folder
+4. *K*ill enemies in-game and go on to be the best player you can while having fun!
 
 ### ConVars
 
