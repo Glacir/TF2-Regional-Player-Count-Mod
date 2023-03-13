@@ -1,9 +1,9 @@
 # TF2-Regional-Player-Count-Mod
-Mod created for Titanfall 2 to show player-count based on region and optionally gamemodes.
+Mod created for Titanfall 2 to show player-count based on region and optionally gamemodes 🥵💦💦
 
 ## Features
-- Updates player count in real time
-- Select between 3 modes
+- Updates player count in real time 🙀
+- Select between 3 modes 😩
 - For actual Titanfall 2 💀💀💀
 
 ## How to install
