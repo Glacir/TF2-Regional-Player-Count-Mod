@@ -4,7 +4,7 @@ Mod created for Titanfall 2 to show player-count based on region and optionally 
 ## Features
 - Updates player count in real time
 - Select between 3 modes
-- For actual Titanfall 2
+- For actual Titanfall 2 💀💀💀
 
 ## How to install
 1. Setup the Auto Matchmaking Mod via the installer linked [here](https://github.com/TimeIsUnending/TF2-Auto-Matchmaking-Mod/releases/latest).
