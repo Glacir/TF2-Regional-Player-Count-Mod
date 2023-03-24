@@ -581,35 +581,27 @@ void function RPCUpdateThread()
 	{
 		string worldDesc = GetPlaylistCountDescForWorld( "at" )
 
-		//Switch statement for different modes
-		switch ( GetConVarString( "rpc_mode" ) )
+		array<string> all_playlists = [ "aitdm","at","cp","ctf","lts","ps","ttdm","lf","coliseum","fd_easy","fd_normal","fd_hard","fd_master","fd_insane" ]
+		int rpc_total_count = 0 //Total regional player count
+		foreach( index, gamemode in all_playlists )
 		{
-			case "region_total":
-				array<string> all_playlists = [ "aitdm","at","cp","ctf","lts","ps","ttdm","lf","coliseum","fd_easy","fd_normal","fd_hard","fd_master","fd_insane" ]
-				int rpc_total_count = 0 //Total regional player count
-				foreach( index, gamemode in all_playlists )
-				{
-					rpc_total_count += GetPlaylistCountDescForRegion( gamemode ).tointeger()
-				}
-				Hud_SetText( Hud_GetChild( file.mixtapeMenu, "PlayerCount" ), "Regional Players Online: ^FF1B7B00%s1", rpc_total_count.tostring() )
-				break
-			case "region_playlist":
-				array<string> rpc_playlist = split( GetConVarString( "match_playlist" ), "," ) //Current playlist
-				int rpc_playlist_count = 0 //Regional player count for current playlist
-				foreach( index, gamemode in rpc_playlist )
-					{
-						rpc_playlist_count += GetPlaylistCountDescForRegion( gamemode ).tointeger()
-					}
-				Hud_SetText( Hud_GetChild( file.mixtapeMenu, "PlayerCount" ), "Regional Players Online For Current Playlist: ^FF1B7B00%s1", rpc_playlist_count.tostring() )
-				break
-			case "global":
-				Hud_SetText( Hud_GetChild( file.mixtapeMenu, "PlayerCount" ), "Global Players Online: ^FFC83200%s1", worldDesc )
-				break
-			default:
-				Hud_SetText( Hud_GetChild( file.mixtapeMenu, "PlayerCount" ), "invalid rpc_mode lol xd : ^FFC83200%s1", worldDesc )
-				break
+			rpc_total_count += GetPlaylistCountDescForRegion( gamemode ).tointeger()
 		}
-		WaitFrame()
+
+		array<string> rpc_playlist = split( GetConVarString( "match_playlist" ), "," ) //Current playlist
+		int rpc_playlist_count = 0 //Regional player count for current playlist
+		string playlists = ""
+		foreach( index, gamemode in rpc_playlist )
+		{
+			playlists += gamemode + ";"
+			rpc_playlist_count += GetPlaylistCountDescForRegion( gamemode ).tointeger()
+		}
+
+		string regionalTotal = format("Regional Total: ^FFC83200%s^", rpc_total_count.tostring())
+		string regionalPlaylist = format("Regional Playlist: ^FF1B7B00%s^", rpc_playlist_count.tostring())
+		string globalTotal = format("Global Total: ^FFC83200%s^", worldDesc)
+		Hud_SetText( Hud_GetChild( file.mixtapeMenu, "PlayerCount" ), "%s1  %s2  %s3  %s4", globalTotal, regionalTotal, regionalPlaylist, playlists)
+		wait 3.0
 	}
 	print( "[RPC] UpdatePlayerCountThread ended." )
 }

@@ -6,9 +6,9 @@
     "LoadPriority": "0",
 
     "ConVars": [
-        {
-            "Name": "rpc_mode",
-            "DefaultValue": "region_total"
-        }
+        // {
+        //     "Name": "rpc_mode",
+        //     "DefaultValue": "region_total"
+        // }
     ]
 }
