@@ -627,10 +627,10 @@ void function PrintCurrentPlayerCount()
 		rpc_playlist_count += GetPlaylistCountDescForRegion( gamemode ).tointeger()
 	}
 
-	printt("Regional Total: %s", rpc_total_count.tostring())
-	printt("Regional Playlist: %s", rpc_playlist_count.tostring())
-	printt("Global Total: %s", worldDesc)
-	printt("Playlists: %s", playlists)
+	printt("Regional Total: ", rpc_total_count.tostring())
+	printt("Regional Playlist: ", rpc_playlist_count.tostring())
+	printt("Global Total: ", worldDesc)
+	printt("Playlists: ", playlists)
 }
 
 bool function IsDialogUp()
