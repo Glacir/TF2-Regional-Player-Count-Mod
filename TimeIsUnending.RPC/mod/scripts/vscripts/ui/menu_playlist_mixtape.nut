@@ -7,6 +7,7 @@ global function GetMixtapeMatchmakingVersion
 global function IsMixtapeVersionNew
 global function PrintPlaylistAvailability
 global function ConvertStringArrayToCSS
+global function PrintCurrentPlayerCount
 
 //script_ui AdvanceMenu( GetMenu( "PlaylistMixtapeMenu" ) )
 
@@ -604,6 +605,32 @@ void function RPCUpdateThread()
 		wait 3.0
 	}
 	print( "[RPC] UpdatePlayerCountThread ended." )
+}
+
+void function PrintCurrentPlayerCount()
+{
+	string worldDesc = GetPlaylistCountDescForWorld( "at" )
+
+	array<string> all_playlists = [ "aitdm","at","cp","ctf","lts","ps","ttdm","lf","coliseum","fd_easy","fd_normal","fd_hard","fd_master","fd_insane" ]
+	int rpc_total_count = 0 //Total regional player count
+	foreach( index, gamemode in all_playlists )
+	{
+		rpc_total_count += GetPlaylistCountDescForRegion( gamemode ).tointeger()
+	}
+
+	array<string> rpc_playlist = split( GetConVarString( "match_playlist" ), "," ) //Current playlist
+	int rpc_playlist_count = 0 //Regional player count for current playlist
+	string playlists = ""
+	foreach( index, gamemode in rpc_playlist )
+	{
+		playlists += gamemode + ";"
+		rpc_playlist_count += GetPlaylistCountDescForRegion( gamemode ).tointeger()
+	}
+
+	printt("Regional Total: %s", rpc_total_count.tostring())
+	printt("Regional Playlist: %s", rpc_playlist_count.tostring())
+	printt("Global Total: %s", worldDesc)
+	printt("Playlists: %s", playlists)
 }
 
 bool function IsDialogUp()
